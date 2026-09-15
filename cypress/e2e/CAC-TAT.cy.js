@@ -82,7 +82,33 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.error').should('be.visible')
   })
 
-// Exercício 7 / Comandos Customizados
+// Exercício 7.1 / Comandos Customizados
+  it('envia o formulário com sucesso usando um comando customizado', () => {
+    cy.fillMandatoryFieldsAndSubmit()
+    
+    cy.get('.success').should('be.visible')
+  })
 
+// Exercício 7.2 / Comandos Customizados
+  /*it('envia o formulário com sucesso usando um comando customizado', () => {
+    const data = {
+      firstName: 'Gabriel',
+      lastName: 'Pires',
+      email: 'barbogabriel@gmail.com',
+      openTextArea: 'Testar teste testanto'
+    }
+
+    cy.fillMandatoryFieldsAndSubmit(data)
+    
+    cy.get('.success').should('be.visible')
+  })*/
+
+// Exercício 7.3 / Comandos Customizados
+  /*it('envia o formulário com sucesso usando um comando customizado', () => {
+
+    cy.fillMandatoryFieldsAndSubmit()
+    
+    cy.get('.success').should('be.visible')
+  })*/
 
 })
