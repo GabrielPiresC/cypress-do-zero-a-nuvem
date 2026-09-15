@@ -58,3 +58,17 @@ Cypress.Commands.add('fillMandatoryFieldsAndSubmit', () => {
     cy.get('#open-text-area').type(data.openTextArea)
     cy.get('.button[type="submit"]').click()
 })*/
+
+// Exercício 8
+
+/*Cypress.Commands.add('fillMandatoryFieldsAndSubmit', (data = {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'johndoe@example.com',
+    openTextArea: 'Mensagem de teste para testar.'
+}) => {
+    cy.get('#firstName').type(data.firstName)
+    cy.get('#lastName').type(data.lastName)
+    cy.get('#email').type(data.email)
+    cy.get('#open-text-area').type(data.openTextArea)
+    cy.contains('button', 'Enviar').click()*/
