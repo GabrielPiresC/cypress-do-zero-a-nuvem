@@ -114,4 +114,25 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 // Exercício 8
 // Trocar todos cy.get() por cy.contains() onde identificamos o botão de clique
 
+// Exercício 1 Aula 3
+  it('seleciona um produto (YouTube) por seu texto', () => {
+    cy.get('#product')
+      .select('YouTube')
+      .should('have.value', 'youtube')
+  })
+
+// Exercício extra 1 Aula 3
+  it('seleciona um produto (Mentoria) por seu valor (value)', () => {
+    cy.get('#product')
+      .select('mentoria')
+      .should('have.value', 'mentoria')
+  })
+
+// Exercício extra 2 Aula 3
+  it('seleciona um produto (Blog) por seu índice', () => {
+    cy.get('#product')
+      .select(1)
+      .should('have.value', 'blog')
+  })
+
 })

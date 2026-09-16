@@ -72,3 +72,4 @@ Cypress.Commands.add('fillMandatoryFieldsAndSubmit', () => {
     cy.get('#email').type(data.email)
     cy.get('#open-text-area').type(data.openTextArea)
     cy.contains('button', 'Enviar').click()*/
+
