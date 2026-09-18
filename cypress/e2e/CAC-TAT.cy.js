@@ -45,7 +45,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#lastName').type('Pires')
     cy.get('#email').type('barbogabriel@gmail.com')
     cy.get('#open-text-area').type('Testar teste testanto')
-    cy.get('#phone-checkbox').check()
+    cy.get('#phone-checkbox').check() //Exercício extra Aula 5
     cy.contains('button', 'Enviar').click() //Exercício 8
 
     cy.get('.error').should('be.visible')
@@ -134,5 +134,68 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .select(1)
       .should('have.value', 'blog')
   })
+
+// Exercício 1 Aula 4
+
+it('marca o tipo de atendimento "Feedback"', () => {
+    cy.get('input[type="radio"][value="feedback"]')
+      .check()
+      .should('be.checked')
+})
+
+// Exercício extra Aula 4
+
+it('marca cada tipo de atendimento', () => {
+    cy.get('input[type="radio"]')
+      .each(typeOfService => {
+        cy.wrap(typeOfService)
+        .check()
+        .should('be.checked')
+      })
+})
+
+// Exercício Aula 5
+
+it('marca ambos checkboxes, depois desmarca o último', () => {
+    cy.get('input[type="checkbox"]')
+      .check()
+      .should('be.checked')
+      .last()
+      .uncheck()
+      .should('not.be.checked')
+})
+
+// Execício Aula 6
+
+it('seleciona um arquivo da pasta fixtures', () => {
+    cy.get('#file-upload')
+      .selectFile('cypress/fixtures/example.json')
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })
+})
+
+// Exercício extra 1 Aula 6
+
+it('seleciona um arquivo simulando um drag-and-drop', () => {
+    cy.get('#file-upload')
+      .selectFile('cypress/fixtures/example.json', { action: 'drag-drop' })
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })
+})
+
+// Exercício extra 2 Aula 6
+
+it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', () => {
+    cy.fixture('example.json').as('sampleFile')
+    cy.get('#file-upload')
+      .selectFile('@sampleFile')
+      .should(input => {
+        expect(input[0].files[0].name).to.equal('example.json')
+      })
+})
+
+
 
 })
