@@ -1,6 +1,6 @@
 # 🌲 Cypress, from Zero to the Cloud ☁️
 
-[![pt-BR](https://img.shields.io/badge/lang-pt--BR-green.svg)](README.pt-BR.md)
+[![pt-BR](https://img.shields.io/badge/lang-pt--BR-green.svg)](README.pt.md)
 
 Sample project for the "Cypress, from Zero to the Cloud" course of the Talking About Testing online school.
 
