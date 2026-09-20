@@ -217,8 +217,5 @@ it('acessa a página da política de privacidade removendo o target e então cli
 // Exercício extra 2 Aula 7
 // privacyPolicy.cy.js
 
-// Exercício Aula 8
-
-
 
 })
