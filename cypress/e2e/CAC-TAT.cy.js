@@ -10,6 +10,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
 // Exercício 1
   it('preenche os campos obrigatórios e envia o formulário', () => {
+    cy.clock() //Exercício 12 (congela o tempo)
+
     const longText = Cypress._.repeat('abcdefghijklmnopqrstuvwxyz', 10)
     
     cy.get('#firstName').type('Gabriel')
@@ -19,10 +21,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.contains('button', 'Enviar').click() //Exercício 8
 
     cy.get('.success').should('be.visible')
+
+    cy.tick(3000) //Exercício 12 (avança o tempo em 3 segundos)
+
+    cy.get('.success').should('not.be.visible')
   })
 
 // Exercício 2
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
+    cy.clock() //Exercício 12 (congela o tempo)
+
     cy.get('#firstName').type('Gabriel')
     cy.get('#lastName').type('Pires')
     cy.get('#email').type('barbogabriel@gmail,com')
@@ -30,6 +38,10 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.contains('button', 'Enviar').click() //Exercício 8
 
     cy.get('.error').should('be.visible')
+
+    cy.tick(3000) //Exercício 12 (avança o tempo em 3 segundos)
+
+    cy.get('.error').should('not.be.visible')
   })
 
 // Exercício 3
@@ -41,6 +53,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
 // Exercício 4
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+    cy.clock() //Exercício 12 (congela o tempo)
+
     cy.get('#firstName').type('Gabriel')
     cy.get('#lastName').type('Pires')
     cy.get('#email').type('barbogabriel@gmail.com')
@@ -49,6 +63,10 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.contains('button', 'Enviar').click() //Exercício 8
 
     cy.get('.error').should('be.visible')
+
+    cy.tick(3000) //Exercício 12 (avança o tempo em 3 segundos)
+
+    cy.get('.error').should('not.be.visible')
   })
 
 // Exercício 5
@@ -77,16 +95,28 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
 // Exercício 6
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
+    cy.clock() //Exercício 12 (congela o tempo)
+
     cy.contains('button', 'Enviar').click() //Exercício 8
 
     cy.get('.error').should('be.visible')
+
+    cy.tick(3000) //Exercício 12 (avança o tempo em 3 segundos)
+
+    cy.get('.error').should('not.be.visible')
   })
 
 // Exercício 7.1 / Comandos Customizados
   it('envia o formulário com sucesso usando um comando customizado', () => {
+    cy.clock() //Exercício 12 (congela o tempo)
+
     cy.fillMandatoryFieldsAndSubmit()
     
     cy.get('.success').should('be.visible')
+
+    cy.tick(3000) //Exercício 12 (avança o tempo em 3 segundos)
+
+    cy.get('.success').should('not.be.visible')
   })
 
 // Exercício 7.2 / Comandos Customizados
