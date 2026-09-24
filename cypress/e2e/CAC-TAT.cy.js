@@ -287,6 +287,16 @@ it('faz uma requisição HTTP', () => {
       .should('include', 'CAC TAT')
 })
 
+// Desafio final 
 
+it('encontra o gato escondido', () => {
+    cy.get('#cat')
+      .invoke('show')
+      .should('be.visible')
+    cy.get('#title')
+      .invoke('text', 'CAT TAT')
+    cy.get('#subtitle')
+      .invoke('text', 'Eu 💖 gatos!')
+})
 
 })
